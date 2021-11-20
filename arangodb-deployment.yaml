@@ -1,0 +1,7 @@
+apiVersion: "database.arangodb.com/v1alpha"
+kind: "ArangoDeployment"
+metadata:
+  name: "my-arangodb-cluster"
+spec:
+  mode: Cluster
+  image: "arangodb/arangodb:latest"
