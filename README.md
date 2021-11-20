@@ -30,6 +30,6 @@ This repository we are going to understand how we can easly setup arangodb as Lo
 5. Access arangodb
    type in your browser https://localhost:8529
 
-   ![arangodb](assets\startpage.png)
+   ![arangodb](assets/startpage.png)
 
 Now your arangodb Setup is done you can ready to use arangodb
