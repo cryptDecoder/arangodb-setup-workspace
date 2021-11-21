@@ -5,3 +5,5 @@ metadata:
 spec:
   mode: Cluster
   image: "arangodb/arangodb:latest"
+  externalAccess:
+      type: LoadBalancer

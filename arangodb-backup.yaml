@@ -1,0 +1,32 @@
+---
+apiVersion: "backup.arangodb.com/v1alpha"
+kind: "ArangoBackup"
+metadata:
+  name: "arangodb-backup"
+  namespace: default
+spec:
+  policyName: "arangodb-backup-policy"
+  deployment:
+    name: "arangodb-backup-deployment"
+  upload:
+    repositoryURL: "https://s3.filebase.com/arangodb"
+    credentialsSecretName: "backup-secret"
+---
+apiVersion: "backup.arangodb.com/v1alpha"
+kind: "ArangoBackupPolicy"
+metadata:
+  name: "arangodb-backup-policy"
+spec:
+  schedule: "*/2 * * * *"
+template:
+  upload:
+      repositoryURL: "https://s3.filebase.com/arangodb"
+      credentialsSecretName: "backup-secret"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backup-secret
+data:
+   token: mybase64EnodedJSONToken
+type: Opaque
